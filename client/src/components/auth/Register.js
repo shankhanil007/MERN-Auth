@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import GoogleLogin from "react-google-login";
 import AuthContext from "../../context/auth/authContext";
 
 const Register = (props) => {
@@ -38,6 +39,18 @@ const Register = (props) => {
         password,
       });
     }
+  };
+
+  const onLoginSuccess = (res) => {
+    register({
+      name: res.profileObj.givenName.concat(res.profileObj.familyName),
+      email: res.profileObj.email,
+      password: "GooglePassword",
+    });
+  };
+
+  const onLoginFailure = (res) => {
+    console.log("Login Failed:", res);
   };
 
   return (
@@ -98,6 +111,13 @@ const Register = (props) => {
           className="btn btn-primary btn-block"
         />
       </form>
+      <GoogleLogin
+        clientId="17349852299-7ed5tgmaa6dl40p6qmoovg6pg4ar602f.apps.googleusercontent.com"
+        buttonText="Sign Up with Google"
+        onSuccess={onLoginSuccess}
+        onFailure={onLoginFailure}
+        cookiePolicy={"single_host_origin"}
+      />
     </div>
   );
 };
