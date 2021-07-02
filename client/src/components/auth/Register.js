@@ -53,9 +53,16 @@ const Register = (props) => {
     console.log("Login Failed:", res);
   };
 
+  const RegisterForm = {
+    maxWidth: "500px",
+    padding: "15px",
+    margin: "auto",
+    marginTop: "50px",
+  };
+
   return (
-    <div className="form-container">
-      <h1>
+    <div style={RegisterForm}>
+      <h1 style={{ textAlign: "center" }}>
         Account <span className="text-primary">Register</span>
       </h1>
       <form onSubmit={onSubmit}>
@@ -63,6 +70,7 @@ const Register = (props) => {
           <label htmlFor="name">Name</label>
           <input
             id="name"
+            class="form-control"
             type="text"
             name="name"
             value={name}
@@ -73,6 +81,7 @@ const Register = (props) => {
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
+            class="form-control"
             id="email"
             type="email"
             name="email"
@@ -84,6 +93,7 @@ const Register = (props) => {
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
+            class="form-control"
             id="password"
             type="password"
             name="password"
@@ -96,6 +106,7 @@ const Register = (props) => {
         <div className="form-group">
           <label htmlFor="password2">Confirm Password</label>
           <input
+            class="form-control"
             id="password2"
             type="password"
             name="password2"
@@ -105,11 +116,9 @@ const Register = (props) => {
             minLength="6"
           />
         </div>
-        <input
-          type="submit"
-          value="Register"
-          className="btn btn-primary btn-block"
-        />
+        <button type="submit" className="btn btn-primary mt-3" value="Register">
+          Register
+        </button>
       </form>
       <GoogleLogin
         clientId="17349852299-7ed5tgmaa6dl40p6qmoovg6pg4ar602f.apps.googleusercontent.com"
@@ -117,6 +126,7 @@ const Register = (props) => {
         onSuccess={onLoginSuccess}
         onFailure={onLoginFailure}
         cookiePolicy={"single_host_origin"}
+        className="mt-3"
       />
     </div>
   );
