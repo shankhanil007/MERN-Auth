@@ -84,7 +84,7 @@ const Login = (props) => {
       </form>
       <GoogleLogin
         clientId="17349852299-7ed5tgmaa6dl40p6qmoovg6pg4ar602f.apps.googleusercontent.com"
-        buttonText="Sign Up with Google"
+        buttonText="Log In with Google"
         onSuccess={onLoginSuccess}
         onFailure={onLoginFailure}
         cookiePolicy={"single_host_origin"}
