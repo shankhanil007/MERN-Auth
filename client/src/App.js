@@ -7,8 +7,6 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 
 import AuthState from "./context/auth/AuthState";
 
-import "./App.css";
-
 const App = () => {
   return (
     <AuthState>
