@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import GoogleLogin from "react-google-login";
 import AuthContext from "../../context/auth/authContext";
+import AlertContext from "../../context/alert/alertContext";
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
@@ -12,6 +14,7 @@ const Login = (props) => {
     }
 
     if (error === "Invalid Credentials") {
+      alertContext.setAlert("Invalid Credententials", "danger");
       clearErrors();
     }
     // eslint-disable-next-line
