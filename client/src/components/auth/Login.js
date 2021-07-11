@@ -93,7 +93,7 @@ const Login = (props) => {
         </button>
       </form>
       <GoogleLogin
-        clientId="17349852299-7ed5tgmaa6dl40p6qmoovg6pg4ar602f.apps.googleusercontent.com"
+        clientId=""
         buttonText="Log In with Google"
         onSuccess={onLoginSuccess}
         onFailure={onLoginFailure}
